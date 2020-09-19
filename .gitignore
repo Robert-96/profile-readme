@@ -1,0 +1,31 @@
+# python
+__pycache__/
+*.pyc
+
+# builds
+*.egg-info/
+.eggs/
+wheels/
+build/
+sdist/
+dist/
+lib/
+
+# pytest
+.pytest_cache/
+
+# request cache
+cache/*
+!cache/.gitkeep
+
+# logs
+*.log
+
+# env
+.env
+
+# vscode
+.vscode
+
+# tests
+TEST-*.md
