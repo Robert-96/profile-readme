@@ -79,6 +79,31 @@ TIME_STAMP_TEMPLATE = """\
 <p><strong>Updated</strong>: <i>{{ TIME_STAMP|datetimeformat }}</i></p>
 """
 
+GITIGNORE = """\
+# python
+__pycache__/
+*.pyc
+
+# builds
+*.egg-info/
+.eggs/
+wheels/
+build/
+sdist/
+dist/
+lib/
+
+# request cache
+github.sqlite
+
+# logs
+*.log
+
+# env
+.env
+
+"""
+
 GITHUB_ACTION = """\
 name: README
 
@@ -100,8 +125,8 @@ jobs:
           fetch-depth: 1
       - name: Update README.md
         run: |
-          python3 -m pip install -U git+https://github.com/Robert-96/profile-readme.git
-          python3 -m profile-readme update
+          python3 -m pip install profile-readme
+          python3 -m profile_readme render
       - name: Deploy
         run: |
           git config user.name "${GITHUB_ACTOR}"
@@ -109,6 +134,7 @@ jobs:
           git add .
           git commit -am "Update README.md from GitHub action"
           git push --all -f https://${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+
 """
 
 
@@ -123,6 +149,7 @@ def init_template(file):
         ("organizations", ORGANIZATIONS_TEMPLATE)
     ]
 
+    click.echo()
     for message, template in prompts:
         text = "  * Do you want to add your {}?".format(click.style(message, fg="yellow", bold=True))
 
@@ -135,6 +162,8 @@ def init_template(file):
     with open(file, 'w') as fp:
         fp.write("\n".join(content))
 
+    click.secho("  README template succesfuly generated.", fg="green")
+    click.echo()
 
 def init_actions():
     actions_dir = ".github/workflows"
@@ -149,9 +178,22 @@ def init_actions():
     click.echo()
 
 
+def init_gitignore():
+    with open(".gitignore", 'w') as fp:
+        fp.write(GITIGNORE)
+
+    click.secho("  '.gitingnore' file succesfuly generated.", fg="green")
+    click.echo()
+
+
 def init_project(file):
-    if click.confirm("Generate README template: ", default=True):
+    if click.confirm("Generate a README template at '{}': ".format(file), default=True):
         init_template(file)
+    else:
+        click.echo()
+
+    if click.confirm("Generate '.gitignore' file: ", default=True):
+        init_gitignore()
     else:
         click.echo()
 
