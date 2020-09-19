@@ -11,7 +11,7 @@ from .utils import config_logger
 config_logger()
 logger = logging.getLogger()
 
-requests_cache.install_cache('cache/github')
+requests_cache.install_cache('github')
 
 
 def get_user(user):

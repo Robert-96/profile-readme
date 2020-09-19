@@ -15,8 +15,7 @@ lib/
 .pytest_cache/
 
 # request cache
-cache/*
-!cache/.gitkeep
+github.sqlite
 
 # logs
 *.log
