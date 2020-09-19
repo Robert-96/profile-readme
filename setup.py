@@ -3,17 +3,17 @@ from setuptools import setup, find_packages
 
 NAME = 'profile-readme'
 VERSION = '0.1.0'
-DESCRIPTION = ''
-URL = ''
-EMAIL = ''
-AUTHOR = ''
+DESCRIPTION = 'A CLI tool for generating a GitHub profile README.'
+URL = 'https://github.com/Robert-96/profile-readme'
+EMAIL = 'dezmereanrobert@gmail.com'
+AUTHOR = 'Robert-96'
 REQUIRES_PYTHON = '>=3.4.0'
 LICENSE = 'MIT'
 
 PROJECT_URLS = {
-    "Bug Tracker": "",
-    "Documentation": "",
-    "Source": ""
+    'Bug Tracker': 'https://github.com/Robert-96/profile-readme/issues',
+    'Documentation': 'https://github.com/Robert-96/profile-readme/blob/master/README.md',
+    'Source': 'https://github.com/Robert-96/profile-readme'
 }
 
 with open('requirements.txt') as f:
@@ -45,29 +45,34 @@ setup(
         profile-readme=profile_readme.cli:cli
     ''',
     classifiers=[
-        "Development Status :: 4 - Beta",
-        "Development Status :: 5 - Production/Stable",
+        'Development Status :: 4 - Beta',
 
-        "Intended Audience :: Developers",
-        "Intended Audience :: Other Audience",
+        'Intended Audience :: Developers',
+        'Intended Audience :: Other Audience',
 
-        "Environment :: Console",
+        'Environment :: Console',
 
-        "Programming Language :: Cython",
-        "Programming Language :: Python :: Implementation",
-        "Programming Language :: Python :: Implementation :: CPython",
-        "Programming Language :: Python :: Implementation :: PyPy",
-        "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
+        'License :: OSI Approved :: MIT License',
 
-        "Operating System :: OS Independent",
+        'Programming Language :: Cython',
+        'Programming Language :: Python :: Implementation',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy',
+        'Programming Language :: Python :: 3 :: Only',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
 
-        "Topic :: Software Development :: Libraries",
+        'Operating System :: OS Independent',
+
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Text Processing',
+        'Topic :: Text Processing :: Markup :: HTML',
+        'Topic :: Text Processing :: Markup :: Markdown',
+        'Topic :: Utilities'
     ],
-    keywords="profile-readme",
+    keywords='profile-readme',
 )
