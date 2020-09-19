@@ -42,7 +42,7 @@ setup(
     packages=find_packages(exclude=['tests']),
     entry_points='''
         [console_scripts]
-        profile-readme=src.cli:cli
+        profile-readme=profile_readme.cli:cli
     ''',
     classifiers=[
         "Development Status :: 4 - Beta",

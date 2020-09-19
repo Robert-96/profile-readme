@@ -2,7 +2,7 @@
 
 A CLI tool for generating a GitHub profile README.
 
-It uses [Jinja2](https://jinja.palletsprojects.com/) as a template engine and it provides data from the GitHub API to the template.
+It uses [Jinja2](https://jinja.palletsprojects.com/) as a template engine and it provides data from the GitHub API to your template.
 
 ## Installation
 
