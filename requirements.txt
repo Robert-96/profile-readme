@@ -4,3 +4,4 @@ requests
 requests_cache
 jinja2
 python-dotenv
+dateutil
