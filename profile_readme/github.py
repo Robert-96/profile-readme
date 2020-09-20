@@ -20,7 +20,7 @@ def get_user(user):
 
 
 def _get_repos_page(user, page, per_page=100):
-    repos_raw = requests.get('https://api.github.com/users/{}/repos?page={}&per_page=100'.format(user, page))
+    repos_raw = requests.get('https://api.github.com/users/{}/repos?page={}&per_page={}'.format(user, page, per_page))
     return repos_raw.json()
 
 
