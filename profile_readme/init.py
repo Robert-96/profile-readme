@@ -165,6 +165,7 @@ def init_template(file):
     click.secho("  README template succesfuly generated.", fg="green")
     click.echo()
 
+
 def init_actions():
     actions_dir = ".github/workflows"
 

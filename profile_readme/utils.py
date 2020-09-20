@@ -5,6 +5,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 from dateutil.parser import parse
 
+
 load_dotenv()
 
 LOG_FILE = os.getenv('LOG_FILE', None)

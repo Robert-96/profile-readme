@@ -19,9 +19,26 @@ def get_user(user):
     return user_raw.json()
 
 
-def get_repos(user):
-    repos_raw = requests.get('https://api.github.com/users/{}/repos'.format(user))
+def _get_repos_page(user, page, per_page=100):
+    repos_raw = requests.get('https://api.github.com/users/{}/repos?page={}&per_page=100'.format(user, page))
     return repos_raw.json()
+
+
+def get_repos(user):
+    all_repos = []
+    done = False
+    page = 1
+
+    while not done:
+        repos = _get_repos_page(user, page)
+        all_repos.extend(repos)
+
+        if len(repos) < 100:
+            done = True
+        else:
+            page += 1
+
+    return all_repos
 
 
 def _popular_repo_key(repo):
