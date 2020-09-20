@@ -27,13 +27,14 @@ def _get_repos_page(user, page, per_page=100):
 def get_repos(user):
     all_repos = []
     done = False
+    per_page = 100
     page = 1
 
     while not done:
-        repos = _get_repos_page(user, page)
+        repos = _get_repos_page(user, page, per_page=per_page)
         all_repos.extend(repos)
 
-        if len(repos) < 100:
+        if len(repos) < per_page:
             done = True
         else:
             page += 1
