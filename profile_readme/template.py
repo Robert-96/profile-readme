@@ -7,7 +7,7 @@ from .github import get_user, get_repos, get_popular_repos, get_top_languages, g
 
 
 config_logger()
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 
 
 def render_template(template, **options):

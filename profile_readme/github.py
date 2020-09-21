@@ -9,7 +9,7 @@ from .utils import config_logger
 
 
 config_logger()
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 
 requests_cache.install_cache('github')
 
@@ -19,31 +19,30 @@ def get_user(user):
     return user_raw.json()
 
 
-def _get_repos_page(user, page, per_page=100):
+def _get_repos_page(user, page=0, per_page=100):
     repos_raw = requests.get('https://api.github.com/users/{}/repos?page={}&per_page={}'.format(user, page, per_page))
     return repos_raw.json()
 
 
+def _get_repos(user, page=0, data=None, per_page=100):
+    if not data:
+        data = []
+
+    repos = _get_repos_page(user, page=page, per_page=per_page)
+    data.extend(repos)
+
+    if len(repos) < per_page:
+        return data
+    else:
+        return _get_repos(user, page=page + 1, data=data, per_page=per_page)
+
+
 def get_repos(user):
-    all_repos = []
-    done = False
-    per_page = 100
-    page = 1
-
-    while not done:
-        repos = _get_repos_page(user, page, per_page=per_page)
-        all_repos.extend(repos)
-
-        if len(repos) < per_page:
-            done = True
-        else:
-            page += 1
-
-    return all_repos
+    return _get_repos(user, page=0, data=None, per_page=100)
 
 
 def _popular_repo_key(repo):
-    return repo.get('stargazers_count', 0) + repo.get('watchers_count', 0) + repo.get('stargazers_count', 0)
+    return repo.get('fork_count', 0) + repo.get('stargazers_count', 0) + repo.get('watchers_count', 0)
 
 
 def get_popular_repos(user):

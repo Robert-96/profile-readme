@@ -14,12 +14,16 @@ logger = logging.getLogger()
 
 load_dotenv()
 
+CONTEXT_SETTINGS = dict(help_option_names=["--help", "-h"])
+
 
 @click.group(
+    context_settings=CONTEXT_SETTINGS,
     cls=HelpColorsGroup,
     help_headers_color='yellow',
     help_options_color='green'
 )
+@click.version_option(None, "--version", "-v", prog_name="profile-readme")
 def cli():
     """A CLI tool for generating a GitHub profile README."""
 
