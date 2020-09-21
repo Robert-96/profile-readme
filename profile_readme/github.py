@@ -95,7 +95,7 @@ def _compute_top_languages(total, languages):
                 'percentage': percentage
             })
 
-    top_languages.sort(key=lambda x: x.get('percentage', 0), reverse=True)
+    top_languages.sort(key=lambda language: language.get('percentage', 0), reverse=True)
     return top_languages
 
 
