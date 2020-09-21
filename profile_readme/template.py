@@ -3,7 +3,7 @@ import logging
 from jinja2 import Environment
 
 from .utils import config_logger, datetimeformat, get_time_stamp
-from .github import get_user, get_repos, get_popular_repos, get_top_languages, get_gists, get_orgs
+from .github import get_user, get_repos, get_popular_repos, get_top_languages, get_gists, get_orgs, get_contributions
 
 
 config_logger()
@@ -36,5 +36,6 @@ def render_readme(template, readme, user):
         'REPOS': get_repos(user),
         'POPULAR_REPOS': get_popular_repos(user),
         'GISTS': get_gists(user),
-        'ORGS': get_orgs(user)
+        'ORGS': get_orgs(user),
+        'CONTRIBUTIONS': get_contributions(user)
     })
