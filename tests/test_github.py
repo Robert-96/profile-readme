@@ -4,7 +4,7 @@ from profile_readme.github import _compute_top_languages
 
 
 @pytest.mark.parametrize(
-    "total,languages,expected",
+    "total, languages, expected",
     [
         (100, {'Py': 0}, []),
         (100, {'Py': 50}, [{'name': 'Py', 'percentage': 50}]),
