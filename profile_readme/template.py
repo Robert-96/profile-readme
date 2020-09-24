@@ -24,7 +24,7 @@ def update_readme(template, readme, **options):
 
     readme_content = render_template(template_content, **options)
 
-    with open(readme, 'w') as fp:
+    with open(readme, 'w+') as fp:
         fp.write(readme_content)
 
 

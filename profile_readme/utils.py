@@ -9,7 +9,7 @@ from dateutil.parser import parse
 load_dotenv()
 
 LOG_FILE = os.getenv('LOG_FILE', None)
-LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
+LOG_LEVEL = os.getenv('LOG_LEVEL', 'CRITICAL')
 LOG_FORMAT = os.getenv('LOG_FORMAT', '%(name)s:%(funcName)s:%(levelname)s - %(message)s')
 
 DATE_TIME_FORMAT = os.getenv('DATE_TIME_FORMAT', '%B %d, %Y %H:%M:%S')

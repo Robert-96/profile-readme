@@ -113,7 +113,9 @@ def get_orgs(user):
 
 
 def _get_issues_page(user, page=1, per_page=100):
-    issues_raw = requests.get('{}/search/issues?q=type:pr+is:merged+author:{}&page={}&per_page={}'.format(BASE_URL, user, page, per_page))
+    issues_raw = requests.get('{}/search/issues?q=type:pr+is:merged+author:{}&page={}&per_page={}'.format(
+        BASE_URL, user, page, per_page
+    ))
     return issues_raw.json().get('items')
 
 
@@ -144,14 +146,13 @@ def _get_contributions(user):
     return contributions
 
 
-def _compute_top_contributions(contributions):
+def _compute_top_contributions(user, contributions):
     top_contributions = []
 
     for url, count in contributions.items():
-        print(url)
-
         top_contributions.append({
             'url': url.replace('https://api.github.com/repos/', 'https://github.com/'),
+            'commits_url': 'https://api.github.com/repos/commits?author={}'.format(user),
             'name': url.replace('https://api.github.com/repos/', ''),
             'count': count
         })
@@ -164,4 +165,4 @@ def _compute_top_contributions(contributions):
 
 def get_contributions(user):
     contributions = _get_contributions(user)
-    return _compute_top_contributions(contributions)
+    return _compute_top_contributions(user, contributions)
