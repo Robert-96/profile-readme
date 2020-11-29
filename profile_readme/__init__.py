@@ -1,1 +1,1 @@
-from .template import render_readme  # noqa: F401
+from .generator import get_github_context, ProfileGenerator  # noqa: F401

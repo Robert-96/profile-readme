@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 from .utils import config_logger
 from .init import init_project
-from .template import render_readme
+from .generator import get_github_context, ProfileGenerator
 
 
 config_logger()
@@ -59,7 +59,9 @@ def render(template, readme, user):
     click.secho("  USER..............{}".format(click.style(user, fg="yellow", bold=True).rjust(width, ".")))
     click.echo()
 
-    render_readme(template, readme, user)
+    generator = ProfileGenerator(teplatepath=template, outputpath=readme, context=get_github_context(user))
+    generator.render()
+
     click.secho("The '{}' was successfully updated!".format(readme), bold=True, fg="green")
 
 
