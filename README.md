@@ -54,6 +54,15 @@ if __name__ == "__main__":
     generator.render()
 ```
 
+Finally, just save the script as `build.py` (or something similar) and run it with your Python interpreter.
+
+```
+$ python build.py
+```
+
+> Note: Don't forgot to also update `.github/workflows/readme.yml`.
+> Replace `python3 -m profile_readme render` with `python3 build.py`.
+
 ### Loading Data
 
 The simplest way to supply data to templates is to pass `ProfileGenerator` a mapping from variable names to their values (a “context”) as the `context` keyword argument.
