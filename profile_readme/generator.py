@@ -50,8 +50,8 @@ class ProfileGenerator:
     def get_context(self):
         """Get the context for the template."""
 
-        return self.context.update({
-            'TIME_STAMP': get_time_stamp(),
+        return dict(**self.context, **{
+            'TIME_STAMP': get_time_stamp()
         })
 
     def get_template(self):
