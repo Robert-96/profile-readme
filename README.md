@@ -34,6 +34,82 @@ Use the `render` command to update your `README.md` file:
 $ profile-readme render
 ```
 
+## Advanced Usage
+
+### Using Custom Build Scripts
+
+The command line shortcut is convenient, but sometimes your project needs something different than the defaults. To change them, you can use a build script.
+
+A minimal build script looks something like this:
+
+```python
+from profile_readme import get_github_context, ProfileGenerator
+
+
+context = get_github_context('octocat')
+
+
+if __name__ == "__main__":
+    generator = ProfileGenerator(template_path="README-TEMPLATE.md", output_path="README.md", context=context)
+    generator.render()
+```
+
+### Loading Data
+
+The simplest way to supply data to templates is to pass `ProfileGenerator` a mapping from variable names to their values (a “context”) as the `context` keyword argument.
+
+```python
+from profile_readme import get_github_context, ProfileGenerator
+
+
+context = {
+    greeting='Hello, world!'
+}
+
+# If you don't need the GitHub data you can remove the next line
+context.update(**get_github_context('octocat'))
+
+
+if __name__ == "__main__":
+    generator = ProfileGenerator(template_path="README-TEMPLATE.md", output_path="README.md", context=context)
+    generator.render()
+```
+
+Anything added to this dictionary will be available in the template:
+
+```md
+# Title
+
+{{ greeting }}
+```
+
+### Filters
+
+Variables can be modified by [filters](https://jinja.palletsprojects.com/en/2.11.x/templates/#filters). All the standard Jinja2 filters are supported (you can found the full list [here](https://jinja.palletsprojects.com/en/2.11.x/templates/#builtin-filters)).  To add your own filters, simply pass filters as an argument to `ProfileGenerator`.
+
+```python
+from profile_readme import get_github_context, ProfileGenerator
+
+
+context = get_github_context('octocat')
+filters = {
+    'hello': lambda x: 'Hello, {}!',
+}
+
+
+if __name__ == "__main__":
+    generator = ProfileGenerator(template_path="README-TEMPLATE.md", output_path="README.md", context=context, filters=filters)
+    generator.render()
+```
+
+Then you can use them in your template as you would expect:
+
+```md
+# Hello, World!
+
+{{ 'World'|hello }}
+```
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
