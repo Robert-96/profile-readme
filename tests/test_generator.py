@@ -1,8 +1,6 @@
 import os
-import json
-from datetime import datetime
 
-from profile_readme.generator import get_github_context, ProfileGenerator
+from profile_readme.generator import ProfileGenerator
 
 
 def test_build(tmpdir):
