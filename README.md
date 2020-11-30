@@ -53,7 +53,11 @@ context.update(**get_github_context('octocat'))
 
 
 if __name__ == "__main__":
-    ProfileGenerator.render(template_path="README-TEMPLATE.md", output_path="README.md", context=context)
+    ProfileGenerator.render(
+        template_path="README-TEMPLATE.md",
+        output_path="README.md",
+        context=context
+    )
 
 ```
 
@@ -83,7 +87,11 @@ context.update(**get_github_context('octocat'))
 
 
 if __name__ == "__main__":
-    ProfileGenerator.render(template_path="README-TEMPLATE.md", output_path="README.md", context=context)
+    ProfileGenerator.render(
+        template_path="README-TEMPLATE.md",
+        output_path="README.md",
+        context=context
+    )
 
 ```
 
@@ -110,7 +118,12 @@ filters = {
 
 
 if __name__ == "__main__":
-    ProfileGenerator.render(template_path="README-TEMPLATE.md", output_path="README.md", context=context, filters=filters)
+    ProfileGenerator.render(
+        template_path="README-TEMPLATE.md",
+        output_path="README.md",
+        context=context,
+        filters=filters
+    )
 
 ```
 
