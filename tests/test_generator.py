@@ -10,8 +10,7 @@ def test_build(tmpdir):
     with open(teplate_path, 'w') as fp:
         fp.write('Hello, World!')
 
-    generator = ProfileGenerator(teplate_path=teplate_path, output_path=output_path)
-    generator.render()
+    ProfileGenerator.render(teplate_path=teplate_path, output_path=output_path)
 
     with open(output_path, 'r') as fp:
         readme_content = fp.read()
@@ -26,8 +25,7 @@ def test_build_with_context(tmpdir):
     with open(teplate_path, 'w') as fp:
         fp.write('Hello, {{ name }}!')
 
-    generator = ProfileGenerator(teplate_path=teplate_path, output_path=output_path, context={'name': "World"})
-    generator.render()
+    ProfileGenerator.render(teplate_path=teplate_path, output_path=output_path, context={'name': "World"})
 
     with open(output_path, 'r') as fp:
         readme_content = fp.read()
@@ -42,8 +40,7 @@ def test_build_with_filters(tmpdir):
     with open(teplate_path, 'w') as fp:
         fp.write('Hello, {{ "Joe"|foo }}!')
 
-    generator = ProfileGenerator(teplate_path=teplate_path, output_path=output_path, filters={'foo': lambda x: "Foo"})
-    generator.render()
+    ProfileGenerator.render(teplate_path=teplate_path, output_path=output_path, filters={'foo': lambda x: "Foo"})
 
     with open(output_path, 'r') as fp:
         readme_content = fp.read()

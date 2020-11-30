@@ -16,7 +16,7 @@ def get_github_context(user):
     """Get the data from the GitHub API for the template.
 
     Args:
-        user (`str`): The user name of the GitHub user.
+        user (:obj:`str`): The GitHub user name.
     """
 
     return {
@@ -31,7 +31,18 @@ def get_github_context(user):
 
 
 class ProfileGenerator:
-    """Simple Jinja2 profile README generator."""
+    """Simple Jinja2 profile README generator.
+
+    Args:
+        template_path (:obj:`str`): A string representing the path of the template.
+            Defaults to 'README-TEMPLATE.md'.
+        output_path (:obj:`str`): A string representing the output path of the README.md file.
+            Defaults to 'README.md'.
+        context (:obj:`dict`): A dictonary of data to supply to the template.
+            Defaults to None.
+        filters (:obj:`dict`): A dictionary of filters to add to the Environment.
+            Defaults to None.
+    """
 
     def __init__(self, teplate_path="README-TEMPLATE.md", output_path="README.md", context=None, filters=None):
         self.teplate_path = teplate_path
@@ -68,7 +79,20 @@ class ProfileGenerator:
         template = self.get_template()
         template.stream(self.get_context()).dump(self.output_path)
 
-    def render(self):
-        """Reander the profile README file."""
+    @classmethod
+    def render(cls, teplate_path="README-TEMPLATE.md", output_path="README.md", context=None, filters=None):
+        """Reander the profile README file.
 
-        self.render_template()
+        Args:
+            template_path (:obj:`str`): A string representing the path of the template.
+                Defaults to 'README-TEMPLATE.md'.
+            output_path (:obj:`str`): A string representing the output path of the README.md file.
+                Defaults to 'README.md'.
+            context (:obj:`dict`): A dictonary of data to supply to the template.
+                Defaults to None.
+            filters (:obj:`dict`): A dictionary of filters to add to the Environment.
+                Defaults to None.
+        """
+
+        generator = cls(teplate_path=teplate_path, output_path=output_path, context=context, filters=filters)
+        generator.render_template()

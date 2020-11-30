@@ -46,12 +46,15 @@ A minimal build script looks something like this:
 from profile_readme import get_github_context, ProfileGenerator
 
 
-context = get_github_context('octocat')
+context = {}
+
+# If you don't need the GitHub data you can remove the next line
+context.update(**get_github_context('octocat'))
 
 
 if __name__ == "__main__":
-    generator = ProfileGenerator(template_path="README-TEMPLATE.md", output_path="README.md", context=context)
-    generator.render()
+    ProfileGenerator.render(template_path="README-TEMPLATE.md", output_path="README.md", context=context)
+
 ```
 
 Finally, just save the script as `build.py` (or something similar) and run it with your Python interpreter.
@@ -65,7 +68,7 @@ $ python build.py
 
 ### Loading Data
 
-The simplest way to supply data to templates is to pass `ProfileGenerator` a mapping from variable names to their values (a “context”) as the `context` keyword argument.
+The simplest way to supply data to the template is to pass `ProfileGenerator.render` a mapping from variable names to their values (a “context”) as the `context` keyword argument.
 
 ```python
 from profile_readme import get_github_context, ProfileGenerator
@@ -80,8 +83,8 @@ context.update(**get_github_context('octocat'))
 
 
 if __name__ == "__main__":
-    generator = ProfileGenerator(template_path="README-TEMPLATE.md", output_path="README.md", context=context)
-    generator.render()
+    ProfileGenerator.render(template_path="README-TEMPLATE.md", output_path="README.md", context=context)
+
 ```
 
 Anything added to this dictionary will be available in the template:
@@ -107,8 +110,8 @@ filters = {
 
 
 if __name__ == "__main__":
-    generator = ProfileGenerator(template_path="README-TEMPLATE.md", output_path="README.md", context=context, filters=filters)
-    generator.render()
+    ProfileGenerator.render(template_path="README-TEMPLATE.md", output_path="README.md", context=context, filters=filters)
+
 ```
 
 Then you can use them in your template as you would expect:

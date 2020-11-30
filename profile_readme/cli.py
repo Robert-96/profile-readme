@@ -59,8 +59,7 @@ def render(template, readme, user):
     click.secho("  USER..............{}".format(click.style(user, fg="yellow", bold=True).rjust(width, ".")))
     click.echo()
 
-    generator = ProfileGenerator(teplate_path=template, output_path=readme, context=get_github_context(user))
-    generator.render()
+    ProfileGenerator.render(teplate_path=template, output_path=readme, context=get_github_context(user))
 
     click.secho("The '{}' was successfully updated!".format(readme), bold=True, fg="green")
 
