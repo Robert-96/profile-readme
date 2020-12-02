@@ -1,0 +1,2 @@
+[run]
+omit = profile_readme/__main__.py
