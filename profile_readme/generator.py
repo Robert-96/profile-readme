@@ -74,7 +74,7 @@ class ProfileGenerator:
         return self.env.from_string(template_content)
 
     def render_template(self):
-        """Render the Jinja2 templates."""
+        """Reander the profile README file."""
 
         template = self.get_template()
         template.stream(self.get_context()).dump(self.output_path)

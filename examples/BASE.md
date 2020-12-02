@@ -7,19 +7,6 @@
     and <a href="https://github.com/{{ USER.login }}?tab=followers">{{ USER.followers }} followers</a>.
 </p>
 
-{% if USER.blog %}
-    <p>Website: <a href="{{ USER.blog }}">{{ USER.blog }}<a></p>
-{% endif %}
-
-{% if REPOS[0] %}
-<ul>
-    <li>I’m currently working on <a href="{{ REPOS[0].html_url }}">{{ REPOS[0].name }}</a></li>
-    {% if REPOS[0].language %}
-        <li>I’m currently learning {{ REPOS[0].language }}</li>
-    {% endif %}
-</ul>
-{% endif %}
-
 <h3>Top Languages</h3>
 
 <ul>

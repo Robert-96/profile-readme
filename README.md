@@ -1,6 +1,6 @@
 # profile-readme
 
-A CLI tool for generating a GitHub profile README.
+A CLI tool for generating a GitHub profile README using the [Jinja2](https://jinja.palletsprojects.com/) template engine.
 
 It uses [Jinja2](https://jinja.palletsprojects.com/) as a template engine and it provides data from the GitHub API to your template.
 
@@ -130,8 +130,6 @@ if __name__ == "__main__":
 Then you can use them in your template as you would expect:
 
 ```md
-# Hello, World!
-
 {{ 'World'|hello }}
 ```
 

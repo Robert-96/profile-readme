@@ -28,3 +28,6 @@ github.sqlite
 
 # tests
 TEST-*.md
+
+# macOS
+.DS_Store
