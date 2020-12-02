@@ -41,7 +41,7 @@ def init(template):
               default="README.md", show_default=True, help="The ouptut path for the README file.")
 @click.option("--user", envvar='GITHUB_ACTOR', type=str, default="octocat", show_default=True,
               help="The GitHub username.")
-@click.option("--verbose/--quiet", default=False, show_default=True,
+@click.option("--verbose/--quiet", default=True, show_default=True,
               help="Make the operation more talkative.")
 def render(template, readme, user, verbose):
     """Render the README template and save it in a README file."""
