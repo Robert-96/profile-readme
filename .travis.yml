@@ -13,13 +13,3 @@ install:
 script:
   - flake8 tests profile_readme
   - pytest tests
-
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  on:
-    branch: main
-  local-dir: dist
-  verbose: trues
