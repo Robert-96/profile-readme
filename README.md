@@ -1,5 +1,7 @@
 # profile-readme
 
+[![Documentation Status](https://readthedocs.org/projects/profile-readme/badge/?version=latest)](https://profile-readme.readthedocs.io/en/latest/?badge=latest)
+
 A CLI tool for generating a GitHub profile README using the [Jinja2](https://jinja.palletsprojects.com/) template engine.
 
 It uses [Jinja2](https://jinja.palletsprojects.com/) as a template engine and it provides data from the GitHub API to your template.
