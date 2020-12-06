@@ -74,5 +74,5 @@ setup(
         'Topic :: Text Processing :: Markup :: Markdown',
         'Topic :: Utilities'
     ],
-    keywords='profile-readme',
+    keywords='profile-readme, github, profile, readme',
 )
