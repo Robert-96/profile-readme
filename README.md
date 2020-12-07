@@ -1,10 +1,11 @@
 # profile-readme
 
+[![Build Status](https://travis-ci.org/Robert-96/profile-readme.svg?branch=master)](https://travis-ci.org/Robert-96/profile-readme)
 [![Documentation Status](https://readthedocs.org/projects/profile-readme/badge/?version=latest)](https://profile-readme.readthedocs.io/en/latest/?badge=latest)
 
 A CLI tool for generating a GitHub profile README using the [Jinja2](https://jinja.palletsprojects.com/) template engine.
 
-It uses [Jinja2](https://jinja.palletsprojects.com/) as a template engine and it provides data from the GitHub API to your template.
+It lets you use all features provide by [Jinja2](https://jinja.palletsprojects.com/) to help you customizes your GitHub profile README and it provides data from the GitHub API to your template.
 
 ## Installation
 
