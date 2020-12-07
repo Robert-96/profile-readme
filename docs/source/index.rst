@@ -3,7 +3,9 @@ Welcome to profile-readme's documentation!
 
 ``profile-readme`` is a CLI tool for generating a GitHub profile README.
 
-It uses `Jinja2`_ as a template engine and it provides data from the GitHub API to your template.
+It lets you use all features provide by `Jinja2`_ to help you customizes
+your GitHub profile README and it provides data from the GitHub API to
+your template.
 
 
 User Guides
@@ -30,6 +32,8 @@ If you are looking for information on a specific function, class, or method, thi
 
    cli
    api
+   changelog
+   license
 
 
 .. toctree::

@@ -1,9 +1,6 @@
 Quickstart
 ==========
 
-TL;DR
------
-
 Use the ``init`` command to generate a new project with an example template:
 
 .. code-block:: console
