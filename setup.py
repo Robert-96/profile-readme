@@ -11,9 +11,9 @@ REQUIRES_PYTHON = '>=3.4.0'
 LICENSE = 'MIT'
 
 PROJECT_URLS = {
-    'Bug Tracker': 'https://github.com/Robert-96/profile-readme/issues',
-    'Documentation': 'https://github.com/Robert-96/profile-readme/blob/master/README.md',
-    'Source': 'https://github.com/Robert-96/profile-readme'
+    'Bug Tracker': 'https://github.com/Robert-96/profile-readme/issues/',
+    'Documentation': 'https://profile-readme.rtfd.io/',
+    'Source': 'https://github.com/Robert-96/profile-readme/'
 }
 
 with open('requirements.txt') as f:
