@@ -7,6 +7,8 @@ A CLI tool for generating a GitHub profile README using the [Jinja2](https://jin
 
 It lets you use all features provide by [Jinja2](https://jinja.palletsprojects.com/) to help you customizes your GitHub profile README and it provides data from the GitHub API to your template.
 
+Read the documentation on https://profile-readme.rtfd.io/.
+
 ## Installation
 
 Use the following command to install `profile-readme`:

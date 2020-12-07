@@ -39,7 +39,9 @@ If you are looking for information on a specific function, class, or method, thi
 .. toctree::
    :caption: Useful Links
 
-   Source Code <https://github.com/Robert-96/profile-readme>
+   Source Code <https://github.com/Robert-96/profile-readme/>
+   PyPi Releases <https://pypi.org/project/profile-readme/>
+   Bug Tracker <https://github.com/Robert-96/profile-readme/issues/>
 
 
 Indices and Tables
