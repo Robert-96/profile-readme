@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 
 NAME = 'profile-readme'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 DESCRIPTION = 'A CLI tool for generating a GitHub profile README.'
 URL = 'https://github.com/Robert-96/profile-readme'
 EMAIL = 'dezmereanrobert@gmail.com'
