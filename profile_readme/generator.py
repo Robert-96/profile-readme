@@ -44,8 +44,8 @@ class ProfileGenerator:
             Defaults to None.
     """
 
-    def __init__(self, teplate_path="README-TEMPLATE.md", output_path="README.md", context=None, filters=None):
-        self.teplate_path = teplate_path
+    def __init__(self, template_path="README-TEMPLATE.md", output_path="README.md", context=None, filters=None):
+        self.template_path = template_path
         self.output_path = output_path
 
         self.context = context or {}
@@ -68,7 +68,7 @@ class ProfileGenerator:
     def get_template(self):
         """Get a :class:`jinja2.Template` from the environment."""
 
-        with open(self.teplate_path, 'r') as fp:
+        with open(self.template_path, 'r') as fp:
             template_content = fp.read()
 
         return self.env.from_string(template_content)
@@ -80,7 +80,7 @@ class ProfileGenerator:
         template.stream(self.get_context()).dump(self.output_path)
 
     @classmethod
-    def render(cls, teplate_path="README-TEMPLATE.md", output_path="README.md", context=None, filters=None):
+    def render(cls, template_path="README-TEMPLATE.md", output_path="README.md", context=None, filters=None):
         """Reander the profile README file.
 
         Args:
@@ -94,5 +94,5 @@ class ProfileGenerator:
                 Defaults to None.
         """
 
-        generator = cls(teplate_path=teplate_path, output_path=output_path, context=context, filters=filters)
+        generator = cls(template_path=template_path, output_path=output_path, context=context, filters=filters)
         generator.render_template()

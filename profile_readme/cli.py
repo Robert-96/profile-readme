@@ -55,7 +55,7 @@ def render(template, readme, user, verbose):
         click.secho("  USER..............{}".format(click.style(user, fg="yellow", bold=True).rjust(width, ".")))
         click.echo()
 
-    ProfileGenerator.render(teplate_path=template, output_path=readme, context=get_github_context(user))
+    ProfileGenerator.render(template_path=template, output_path=readme, context=get_github_context(user))
 
     if verbose:
         click.secho("The '{}' was successfully updated!".format(readme), bold=True, fg="green")

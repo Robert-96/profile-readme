@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 
 NAME = 'profile-readme'
-VERSION = '0.1.1'
-DESCRIPTION = 'A CLI tool for generating a GitHub profile README.'
+VERSION = '0.1.2'
+DESCRIPTION = 'A CLI tool for generating a GitHub profile README using the Jinja2 template engine.'
 URL = 'https://github.com/Robert-96/profile-readme'
 EMAIL = 'dezmereanrobert@gmail.com'
 AUTHOR = 'Robert-96'

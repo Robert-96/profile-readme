@@ -4,13 +4,13 @@ from profile_readme.generator import ProfileGenerator
 
 
 def test_build(tmpdir):
-    teplate_path = os.path.join(tmpdir, 'TEMPLATE-REAME.md')
+    template_path = os.path.join(tmpdir, 'TEMPLATE-REAME.md')
     output_path = os.path.join(tmpdir, 'README.md')
 
-    with open(teplate_path, 'w') as fp:
+    with open(template_path, 'w') as fp:
         fp.write('Hello, World!')
 
-    ProfileGenerator.render(teplate_path=teplate_path, output_path=output_path)
+    ProfileGenerator.render(template_path=template_path, output_path=output_path)
 
     with open(output_path, 'r') as fp:
         readme_content = fp.read()
@@ -19,13 +19,13 @@ def test_build(tmpdir):
 
 
 def test_build_with_context(tmpdir):
-    teplate_path = os.path.join(tmpdir, 'TEMPLATE-REAME.md')
+    template_path = os.path.join(tmpdir, 'TEMPLATE-REAME.md')
     output_path = os.path.join(tmpdir, 'README.md')
 
-    with open(teplate_path, 'w') as fp:
+    with open(template_path, 'w') as fp:
         fp.write('Hello, {{ name }}!')
 
-    ProfileGenerator.render(teplate_path=teplate_path, output_path=output_path, context={'name': "World"})
+    ProfileGenerator.render(template_path=template_path, output_path=output_path, context={'name': "World"})
 
     with open(output_path, 'r') as fp:
         readme_content = fp.read()
@@ -34,13 +34,13 @@ def test_build_with_context(tmpdir):
 
 
 def test_build_with_filters(tmpdir):
-    teplate_path = os.path.join(tmpdir, 'TEMPLATE-REAME.md')
+    template_path = os.path.join(tmpdir, 'TEMPLATE-REAME.md')
     output_path = os.path.join(tmpdir, 'README.md')
 
-    with open(teplate_path, 'w') as fp:
+    with open(template_path, 'w') as fp:
         fp.write('Hello, {{ "Joe"|foo }}!')
 
-    ProfileGenerator.render(teplate_path=teplate_path, output_path=output_path, filters={'foo': lambda x: "Foo"})
+    ProfileGenerator.render(template_path=template_path, output_path=output_path, filters={'foo': lambda x: "Foo"})
 
     with open(output_path, 'r') as fp:
         readme_content = fp.read()
